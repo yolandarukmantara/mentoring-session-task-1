@@ -8,5 +8,12 @@ routers.use('/users', (req, res, next) => {
 routers.get('/', (req, res) =>{
     res.send('index v2')
 })
+routers.get("/profile", (req,res)=>{
+    res.json({
+        id: req.user.id,
+        name: req.user.name,
+        email: req.user.email
+    });
+});
 
 module.exports = routers
